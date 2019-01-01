@@ -26,10 +26,9 @@ RUN curl -fsSL https://github.com/krallin/tini/releases/download/v0.18.0/tini-st
   && curl -fsSL https://github.com/krallin/tini/releases/download/v0.18.0/tini-static-armhf.asc -o /sbin/tini.asc /
 ```
 ### Add plugins
-Plugins can be found at the plugin index: https://plugins.jenkins.io
-
-Use the light grey ID in the upper left to identifiy the plugin.
-Plugin RUN statements can be added at the end of the Dockerfile.
+* Plugins can be found at the plugin index: https://plugins.jenkins.io
+* Use the light grey ID in the upper left to identifiy the plugin.
+* Plugin RUN statements can be added at the end of the Dockerfile.
 ```
 # Distributed Builds plugins
 RUN /usr/local/bin/install-plugins.sh ssh-slaves
