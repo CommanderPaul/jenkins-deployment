@@ -17,11 +17,11 @@ The deployment is expecting to use paulwroe/jenkins:v5 from docker hub.
 
 See https://github.com/CommanderPaul/jenkins-deployment/blob/master/jenkins-dockerfile.md to make your own container.
 
-
 ### First Run Deployment
 If jenkins_home has not been initialized,  set -Djenkins.install.runSetupWizard=**true** to run the setup wizard.
+Log into Jenkins to set up accounts.
+### Not First Run Deployment
 If jenkins_home has been initialized, ensure that -Djenkins.install.runSetupWizard=**false**.
-
 ### Deploy the script
 ```
 kubectl apply -f jenkins-deployment.yaml
