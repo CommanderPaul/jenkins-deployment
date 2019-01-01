@@ -1,4 +1,4 @@
-# The Jenkins Dockerfile Modification
+# Jenkins Dockerfile Modification
 Only a few lines in the official Dockerfile need to be changed for ARM and plugin customization.
 
 The changes are to the base image, adding java, and hard coding the armhf url for krallin.
