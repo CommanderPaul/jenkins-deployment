@@ -1,15 +1,23 @@
-looks like only difference is the base image, adding java, and
-hard coding the armhf url.  The hard coding is strange.  It appears that the
-default raspbian shell can't evlauate $(something) notation.
-had to add unzip command for plugins, makes build super slow too.
+# The Jenkins Dockerfile Used to Create the Container for Raspberry Pi
+Only a few lines in the official Dockerfile need to be changed for ARM and plugin customization.
 
-** changes to Dockerfile....
+The changes are to the base image, adding java, and hard coding the armhf url for krallin.
+The hard coding is strange.  It appears that the default raspbian shell can't evlauate $(something) notation.
+The unzip command needs to be added for plugins, makes build super slow too.
 
-# use arm compatable base image
+```
+git clone https://github.com/jenkinsci/docker.git
+```
+
+
+##Changes to Dockerfile
+###Use arm compatable base image
+```
 # FROM openjdk:8-jdk
 FROM resin/rpi-raspbian
+```
 
-# include java 8
+# include java 8 and add unzip for plugins
 # RUN apt-get update && apt-get install -y git curl && rm -rf /var/lib/apt/lists/*
 RUN apt-get update && apt-get install -y unzip git curl oracle-java8-jdk && rm -rf /var/lib/apt/lists/*
 
