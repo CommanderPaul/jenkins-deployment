@@ -11,8 +11,6 @@ storage: jenkins_home
 ```
 
 
-!! setup flag
-
 ## Deployment
 
 ### Jenkins Container
@@ -20,7 +18,7 @@ storage: jenkins_home
 The deployment is expecting to use paulwroe/jenkins:v5 from docker hub.
 https://cloud.docker.com/u/paulwroe/repository/docker/paulwroe/jenkins
 
-
+See https://github.com/CommanderPaul/jenkins-deployment/blob/master/jenkins-dockerfile.md to make your own container.
 
 
 ### First Run Deployment
