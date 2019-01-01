@@ -2,10 +2,8 @@
 Only a few lines in the official Dockerfile need to be changed for ARM and plugin customization.
 
 The changes are to the base image, adding java, and hard coding the armhf url for krallin.
-The hard coding is strange.  It appears that the default raspbian shell can't evlauate $(something) notation.
 The unzip command needs to be added for plugins.
 Adding plugins makes build super slow.
-
 ```
 git clone https://github.com/jenkinsci/docker.git
 ```
@@ -15,7 +13,6 @@ git clone https://github.com/jenkinsci/docker.git
 # FROM openjdk:8-jdk
 FROM resin/rpi-raspbian
 ```
-
 ### Include java 8 and add unzip for plugins
 ```
 # RUN apt-get update && apt-get install -y git curl && rm -rf /var/lib/apt/lists/*
@@ -25,7 +22,6 @@ RUN apt-get update && apt-get install -y unzip git curl oracle-java8-jdk && rm -
 ```
 #RUN curl -fsSL https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini-static-$(dpkg --print-architecture) -o /sbin/tini \
 #&& curl -fsSL https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini-static-$(dpkg --print-architecture).asc -o /
-
 RUN curl -fsSL https://github.com/krallin/tini/releases/download/v0.18.0/tini-static-armhf -o /sbin/tini \
   && curl -fsSL https://github.com/krallin/tini/releases/download/v0.18.0/tini-static-armhf.asc -o /sbin/tini.asc /
 ```
@@ -62,4 +58,3 @@ RUN /usr/local/bin/install-plugins.sh golang
 # SCM
 RUN /usr/local/bin/install-plugins.sh github
 ```
-
