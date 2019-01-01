@@ -19,8 +19,8 @@ See https://github.com/CommanderPaul/jenkins-deployment/blob/master/jenkins-dock
 
 
 ### First Run Deployment
-If jenkins_home has not been initialized,  set -Djenkins.install.runSetupWizard=true to run the setup wizard.
-If jenkins_home has been initialized, ensure that -Djenkins.install.runSetupWizard=false.
+If jenkins_home has not been initialized,  set -Djenkins.install.runSetupWizard=**true** to run the setup wizard.
+If jenkins_home has been initialized, ensure that -Djenkins.install.runSetupWizard=**false**.
 
 ### Deploy the script
 ```
