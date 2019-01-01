@@ -9,14 +9,11 @@ Node labeled with
 ```
 storage: jenkins_home
 ```
-
-
 ## Deployment
-
 ### Jenkins Container
 
 The deployment is expecting to use paulwroe/jenkins:v5 from docker hub.
-https://cloud.docker.com/u/paulwroe/repository/docker/paulwroe/jenkins
+* https://cloud.docker.com/u/paulwroe/repository/docker/paulwroe/jenkins
 
 See https://github.com/CommanderPaul/jenkins-deployment/blob/master/jenkins-dockerfile.md to make your own container.
 
@@ -27,5 +24,5 @@ If jenkins_home has been initialized, ensure that -Djenkins.install.runSetupWiza
 
 ### Deploy the script
 ```
-kubectl apply -f <my_yaml>
+kubectl apply -f jenkins-deployment.yaml
 ```
