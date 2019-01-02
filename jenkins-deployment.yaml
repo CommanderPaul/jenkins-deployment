@@ -62,9 +62,31 @@ spec:
     spec:
       nodeSelector:
         storage: jenkins_home
+      # jenkins userID and groupID are 1000:1000
+      # jenkins needs permissions to spin up sister containers for builds
+      initContainers:
+        - name: take-docker-bin-ownership
+          image: alpine:3.6
+          command:
+          - chown
+          - :1000
+          - /usr/bin/docker
+          volumeMounts:
+            - name: docker
+              mountPath: /usr/bin/docker
+      initContainers:
+        - name: take-docker-sock-ownership
+          image: alpine:3.6
+          command:
+          - chown
+          - :1000
+          - /var/run/docker.sock
+          volumeMounts:
+            - name: docker-sock
+              mountPath: /var/run/docker.sock
       containers:
         - name: jenkins
-          image: paulwroe/jenkins:v5
+          image: paulwroe/jenkins:v7
           env:
             - name: JAVA_OPTS
             # false sets up jenkins without security on first run!
@@ -77,7 +99,19 @@ spec:
           volumeMounts:
             - name: jenkins-storage-claim
               mountPath: /var/jenkins_home
+            # bind node docker to container
+            - name: docker-bin
+              mountPath: /usr/bin/docker
+            - name: docker-sock
+              mountPath: /var/run/docker.sock
       volumes:
         - name: jenkins-storage-claim
           persistentVolumeClaim:
             claimName: jenkins-home-claim
+        # bind node docker to container
+        - name: docker-bin
+          hostPath:
+            path: /usr/bin/docker
+        - name: docker-sock
+          hostPath:
+            path: /var/run/docker.sock
