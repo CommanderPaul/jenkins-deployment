@@ -13,10 +13,10 @@ git clone https://github.com/jenkinsci/docker.git
 # FROM openjdk:8-jdk
 FROM resin/rpi-raspbian
 ```
-### Include java 8 and add unzip for plugins
+### Include java 8, unzip for plugins, and libltdl-dev for connecting to host docker
 ```
 # RUN apt-get update && apt-get install -y git curl && rm -rf /var/lib/apt/lists/*
-RUN apt-get update && apt-get install -y unzip git curl oracle-java8-jdk && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y libltdl-dev unzip git curl oracle-java8-jdk && rm -rf /var/lib/apt/lists/*
 ```
 ### Get the right binaries for krallin
 ```
