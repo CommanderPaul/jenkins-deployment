@@ -16,7 +16,7 @@ FROM resin/rpi-raspbian
 ### Include java 8, unzip for plugins, and libltdl for connecting to host docker
 ```
 # RUN apt-get update && apt-get install -y git curl && rm -rf /var/lib/apt/lists/*
-RUN apt-get update && apt-get install -y libltdl-dev libltdl7 unzip git curl oracle-java8-jdk && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y libltdl-dev unzip git curl oracle-java8-jdk && rm -rf /var/lib/apt/lists/*
 ```
 ### Get the right binaries for krallin
 ```
