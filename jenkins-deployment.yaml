@@ -85,7 +85,7 @@ spec:
               mountPath: /var/run/docker.sock
       containers:
         - name: jenkins
-          image: paulwroe/jenkins:v7
+          image: paulwroe/jenkins:v8
           env:
             - name: JAVA_OPTS
             # false sets up jenkins without security on first run!
