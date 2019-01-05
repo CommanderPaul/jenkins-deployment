@@ -18,6 +18,13 @@ FROM resin/rpi-raspbian
 # RUN apt-get update && apt-get install -y git curl && rm -rf /var/lib/apt/lists/*
 RUN apt-get update && apt-get install -y libltdl-dev unzip git curl oracle-java8-jdk && rm -rf /var/lib/apt/lists/*
 ```
+### Change jenkins user id and group id
+```
+# ARG uid=1000
+# ARG gid=1000
+ARG uid=500
+ARG gid=500
+```
 ### Get the right binaries for krallin
 ```
 #RUN curl -fsSL https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini-static-$(dpkg --print-architecture) -o /sbin/tini \
