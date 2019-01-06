@@ -19,7 +19,7 @@ FROM resin/rpi-raspbian
 RUN apt-get update && apt-get install -y libltdl-dev unzip git curl oracle-java8-jdk && rm -rf /var/lib/apt/lists/*
 ```
 ### Change jenkins user id and group id
-The uid needs to match the host's jenkins uid, and the gid needs to match the host's docker gid so that jenkins can spin up sister containers.
+The uid needs to match the host's jenkins uid, and the gid needs to match the host's docker gid so that jenkins can spin up sister containers and use external storage.
 ```
 # ARG uid=1000
 # ARG gid=1000
