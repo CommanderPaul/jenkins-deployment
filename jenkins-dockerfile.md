@@ -22,8 +22,8 @@ RUN apt-get update && apt-get install -y libltdl-dev unzip git curl oracle-java8
 ```
 # ARG uid=1000
 # ARG gid=1000
-ARG uid=500
-ARG gid=500
+ARG uid=505
+ARG gid=505
 ```
 ### Get the right binaries for krallin
 ```
