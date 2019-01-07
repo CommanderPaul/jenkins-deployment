@@ -56,6 +56,7 @@ RUN /usr/local/bin/install-plugins.sh simple-theme-plugin
 
 # Scaling
 RUN /usr/local/bin/install-plugins.sh kubernetes
+RUN /usr/local/bin/install-plugins.sh kubernetes-cd
 
 # Building
 RUN /usr/local/bin/install-plugins.sh python
